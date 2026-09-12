@@ -1,0 +1,10 @@
+{
+  "name": "rl-align-website",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Build adapter for the dependency-free Rust website generator",
+  "scripts": {
+    "build": "cargo run --release --offline -- build",
+    "check": "cargo run --offline -- check"
+  }
+}
