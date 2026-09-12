@@ -2,9 +2,9 @@
 
 ## 代码在哪里
 
-本项目是 RL-Align 官网的独立源码项目。当前开发目录为 `/workspace/sites/rl-align`，源代码和修改历史已保存在这个 Site 对应的 Git 仓库中。
+本项目是 RL-Align 官网的独立源码项目。团队源码仓库为 [RL-Align/rl-align-website](https://github.com/RL-Align/rl-align-website)，默认分支为 `main`。官网源码与 [RL-Kernel](https://github.com/RL-Align/RL-Kernel) 项目分别维护。
 
-目前没有把这份官网源码同步到 `github.com/RL-Align` 组织下的 GitHub 仓库。RL-Kernel 项目仓库与官网项目分别维护。
+当前 Site 的开发目录为 `/workspace/sites/rl-align`，线上发布版本仍由该 Site 对应的 Git 仓库和发布流程记录。社区 GitHub 仓库用于团队协作与源码迭代。
 
 当前线上地址：https://rlalign.ai
 
@@ -71,11 +71,20 @@ py -3 -m http.server 8080 --directory dist
 
 可以继续在本项目对应的对话中提出具体修改。更新过程是修改源码、构建、保存版本、发布到当前网址。`.openai/hosting.json` 绑定当前 Site；继续维护这个网站时应保留该绑定。
 
-自己在电脑上修改文件或推送到一个新 GitHub 仓库，不会自动更新当前 `chatgpt.site` 地址。仍需把确定的源码版本交回当前 Site 的发布流程。
+自己在电脑上修改文件或推送到 GitHub，不会自动更新当前官网 `https://rlalign.ai`。仍需把确定的源码版本交回当前 Site 的发布流程。
 
 ### 使用社区自己的 GitHub 仓库
 
-团队长期协作可以建立独立仓库，例如 `RL-Align/rl-align-website`，把源码包的内容作为初始代码，用分支、PR 和 commit 记录迭代。这个名称是建议，目前没有由本次交付创建该仓库。
+官网源码已上传至 `RL-Align/rl-align-website`。后续在本项目对话中提出网站修改时，同步使用这个仓库记录改动，无需每次重新下载压缩包再上传。
+
+每次同步的流程：
+
+1. 读取 GitHub 最新 `main` 和相关工作分支，对照当前 Site 源码，先保留并整合团队已有修改。
+2. 完成网站修改和必要的构建检查，将对应的源码及构建输出提交到工作分支，创建或更新 PR，提供可审核的差异。
+3. 由维护者审核并合并到 `main`。用户明确要求直接提交且仓库规则允许时，可以直接提交；同步过程不强推或覆盖团队历史。
+4. 如本次任务包含官网更新，继续通过现有 Site 发布流程发布对应版本，并分别报告 GitHub 提交或 PR 链接以及官网发布结果。
+
+代码同步在处理网站修改的对话中执行。目前没有配置后台自动同步或 GitHub 推送触发当前 Site 发布；GitHub PR 合并与官网上线分别记录。
 
 源码中已有 `.github/workflows/pages.yml`，用于手动构建并发布到 GitHub Pages。使用前需要在目标仓库启用 Pages，并选择 GitHub Actions 作为构建来源。该工作流通过 `workflow_dispatch` 手动触发，没有配置推送即发布。
 
