@@ -2,6 +2,18 @@ use std::{collections::BTreeMap, env, fs, io, path::Path, process};
 
 type Result<T> = std::result::Result<T, Box<dyn std::error::Error>>;
 
+fn normalize_base_path(value: &str) -> Result<String> {
+    if value.is_empty() || value == "/" { return Ok(String::new()); }
+    let path = value.trim_end_matches('/');
+    if !path.starts_with('/') || path[1..].split('/').any(|part| {
+        part.is_empty() || part == "." || part == ".." ||
+        !part.bytes().all(|c| c.is_ascii_alphanumeric() || b"-_.".contains(&c))
+    }) {
+        return Err("BASE_PATH must be an absolute URL path such as /rl-align-website".into());
+    }
+    Ok(path.to_owned())
+}
+
 fn escape_html(value: &str) -> String {
     value.replace('&', "&amp;").replace('<', "&lt;").replace('>', "&gt;")
         .replace('"', "&quot;").replace('\'', "&#39;")
@@ -52,6 +64,7 @@ fn copy_assets(source: &Path, target: &Path) -> io::Result<()> {
 
 fn build(root: &Path, check_only: bool) -> Result<()> {
     let mut values = read_config(&root.join("site.conf"))?;
+    values.insert("BASE_PATH".to_owned(), normalize_base_path(&env::var("BASE_PATH").unwrap_or_default())?);
     for (key, path) in [("INSTALL_CUDA", "content/install-cuda.sh"), ("INSTALL_ROCM", "content/install-rocm.sh"), ("INSTALL_PYTHON", "content/install-python.sh")] {
         values.insert(key.to_owned(), fs::read_to_string(root.join(path))?);
     }

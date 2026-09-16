@@ -49,18 +49,18 @@
         <h1 id="hero-title">Train. Infer.<br><span>Stay aligned.</span></h1>
         <p class="hero-description">Building cross-hardware and multi-model RL post-training infrastructure for kernel-level train–inference consistency.</p>
         <div class="hero-actions"><a class="button primary" href="#get-started">Get started <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="button secondary" href="https://github.com/RL-Align/RL-Kernel"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg> Explore RL-Kernel</a></div>
-        <div class="hero-meta"><span>Open source</span><span>Apache 2.0</span></div>
+        <div class="hero-meta"><span>Open source</span><span>Apache 2.0</span><a class="hero-contact" href="mailto:team@rl-align.org" title="team@rl-align.org">contact us</a></div>
       </div>
       <figure class="hero-art" aria-label="A silver three-dimensional infinity loop with blue and violet reflections">
         <div class="infinity-stage">
           <img class="infinity-fallback" src="/assets/alignment-chrome.webp" alt="" width="1536" height="1024" fetchpriority="high">
           <canvas id="infinity-canvas" aria-hidden="true"></canvas>
         </div>
-        <figcaption><span>RL-KERNEL</span><span class="hero-art-caption">Precision in every connection.<button class="rotation-toggle" type="button" aria-label="Pause rotation" title="Pause rotation" aria-controls="infinity-canvas" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><g class="rotation-pause"><path d="M7 5v10M13 5v10"/></g><path class="rotation-play" d="m7 4 9 6-9 6Z"/></svg></button></span></figcaption>
+        <figcaption><span>RL-Kernel</span><span class="hero-art-caption">Precision in every connection.<button class="rotation-toggle" type="button" aria-label="Pause rotation" title="Pause rotation" aria-controls="infinity-canvas" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><g class="rotation-pause"><path d="M7 5v10M13 5v10"/></g><path class="rotation-play" d="m7 4 9 6-9 6Z"/></svg></button></span></figcaption>
       </figure>
     </section>
     <section class="partners shell" aria-labelledby="partners-title">
-      <p id="partners-title">OUR PARTNERS</p>
+      <p id="partners-title">Our partners</p>
       <div class="partner-logos">
         <a class="partner partner-vime" href="https://github.com/vllm-project/vime" aria-label="vime reinforcement learning framework"><span class="partner-logo-vime"><img src="/assets/partners/vime.jpg" alt="vime" width="1706" height="922" loading="lazy"></span></a>
         <a class="partner partner-amd" href="https://www.amd.com/" aria-label="AMD"><img src="/assets/partners/amd.svg" alt="AMD" width="140" height="33" loading="lazy"></a>
@@ -68,7 +68,7 @@
       </div>
     </section>
     <section class="principles section shell" aria-labelledby="principles-title">
-      <div class="principles-intro"><p class="eyebrow">01 / OUR FOUNDATION</p><h2 id="principles-title">Every rollout explores<br>the unknown.<br><span>Build on certainty.</span></h2><p>We work to eliminate numerical mismatch between training and inference, with bitwise alignment as the goal and explicit operator contracts as the foundation.</p></div>
+      <div class="principles-intro"><p class="eyebrow">01 / Our foundation</p><h2 id="principles-title">Every rollout explores<br>the unknown.<br><span>Build on certainty.</span></h2><p>We work to eliminate numerical mismatch between training and inference, with bitwise alignment as the goal and explicit operator contracts as the foundation.</p></div>
       <div class="features" aria-label="RL-Kernel capabilities">
       <article><span class="feature-number">01</span><h3>Consistency at the core.</h3><p>Deterministic reduction paths and explicit operator contracts help control numerical divergence between training and rollout.</p><a class="text-link" href="https://github.com/RL-Align/RL-Kernel#our-core-philosophy">Explore the approach <svg class="icon small" aria-hidden="true"><use href="#i-arrow"/></svg></a></article>
       <article><span class="feature-number">02</span><h3>More room to scale.</h3><p>Fused logprob computation, chunking, and shared-prefix attention target the memory bottlenecks in large RL workloads.</p><a class="text-link" href="https://rl-align.github.io/RL-Kernel/">Explore the operators <svg class="icon small" aria-hidden="true"><use href="#i-arrow"/></svg></a></article>
@@ -76,7 +76,7 @@
       </div>
     </section>
     <section class="getting-started section" id="get-started" aria-labelledby="getting-started-title">
-      <div class="shell start-grid"><div><p class="eyebrow">02 / START BUILDING</p><h2 id="getting-started-title">Build your<br>next breakthrough.</h2><p>Build from source and choose the operator path that fits your workload. Start with the installation guide for hardware prerequisites.</p><a class="button secondary" href="https://rl-align.github.io/RL-Kernel/">Read the documentation <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="installation-note">Native GPU kernels require Python 3.10+, a matching PyTorch build, and a CUDA or ROCm toolchain. Install backend dependencies first.</p></div>
+      <div class="shell start-grid"><div><p class="eyebrow">02 / Start building</p><h2 id="getting-started-title">Build your<br>next breakthrough.</h2><p>Build from source and choose the operator path that fits your workload. Start with the installation guide for hardware prerequisites.</p><a class="button secondary" href="https://rl-align.github.io/RL-Kernel/">Read the documentation <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="installation-note">Native GPU kernels require Python 3.10+, a matching PyTorch build, and a CUDA or ROCm toolchain. Install backend dependencies first.</p></div>
         <div class="code-panel"><div class="code-header"><div class="code-tabs" role="tablist" aria-label="Installation mode"><button id="tab-cuda" role="tab" aria-selected="true" aria-controls="panel-cuda" tabindex="0">NVIDIA CUDA</button><button id="tab-rocm" role="tab" aria-selected="false" aria-controls="panel-rocm" tabindex="-1">AMD ROCm</button><button id="tab-python" role="tab" aria-selected="false" aria-controls="panel-python" tabindex="-1">Python fallback</button></div><button class="copy-button" aria-label="Copy installation commands"><svg class="icon small" aria-hidden="true"><use href="#i-copy"/></svg><span>Copy</span></button></div><div id="panel-cuda" role="tabpanel" aria-labelledby="tab-cuda" tabindex="0"><pre><code>git clone https://github.com/RL-Align/RL-Kernel.git
 cd RL-Kernel
 
@@ -114,7 +114,7 @@ python3 -m pip install -e .
     <section class="community section shell" id="community" aria-labelledby="community-title">
       <div class="community-card">
         <div>
-          <p class="eyebrow">03 / THE COMMUNITY</p>
+          <p class="eyebrow">03 / The community</p>
           <h2 id="community-title">The next frontier.<br><span>Built together.</span></h2>
           <p>We’re a community of kernel developers, infrastructure engineers, and researchers. Bring a benchmark, a question, or your next pull request.</p>
           <div class="community-actions"><a class="button primary" href="https://rl-align.slack.com/join/shared_invite/zt-46bxj7uyt-gEK3xzwSJr_lppJsZolR~g#/shared-invite/email">Join the community <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="text-link" href="https://github.com/RL-Align/RL-Kernel/issues">Contribute on GitHub <svg class="icon small" aria-hidden="true"><use href="#i-external"/></svg></a></div>
@@ -129,18 +129,30 @@ python3 -m pip install -e .
                 <li class="social-position social-linkedin"><a class="social-bubble" href="https://www.linkedin.com/company/143609996/admin/dashboard/" target="_blank" rel="noopener noreferrer" aria-label="RL-Align on LinkedIn (opens in a new tab)"><img class="social-icon" src="/assets/social/linkedin-in.svg" width="26" height="26" alt="" loading="lazy"><span class="bubble-label" aria-hidden="true">LinkedIn</span></a></li>
                 <li class="social-position social-whatsapp"><a class="social-bubble" href="https://github.com/Flink-ddd/RL-Kernel/blob/docs/readme-platform-support/docs/assets/whatsapp-group.png" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp community QR code (opens in a new tab)"><img class="social-icon" src="/assets/social/whatsapp.svg" width="30" height="30" alt="" loading="lazy"><span class="bubble-label" aria-hidden="true">WhatsApp</span></a></li>
                 <li class="social-position social-slack"><a class="social-bubble" href="https://rl-align.slack.com/join/shared_invite/zt-46bxj7uyt-gEK3xzwSJr_lppJsZolR~g#/shared-invite/email" target="_blank" rel="noopener noreferrer" aria-label="Join RL-Align on Slack (opens in a new tab)"><img class="social-icon" src="/assets/social/slack.svg" width="28" height="28" alt="" loading="lazy"><span class="bubble-label" aria-hidden="true">Slack</span></a></li>
+                <li class="social-position social-email">
+                  <details class="email-disclosure">
+                    <summary class="social-bubble" aria-label="Email contact">
+                      <svg class="social-icon email-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                      <span class="bubble-label" aria-hidden="true">Email</span>
+                    </summary>
+                    <div class="email-card"><a href="mailto:team@rl-align.org">team@rl-align.org</a></div>
+                  </details>
+                </li>
               </ul>
             </nav>
           </div>
           <p>The new future<br>of reinforcement learning.</p>
           <div class="community-contact">
-            <a href="mailto:team@rl-align.org">team@rl-align.org</a>
             <button class="social-motion-toggle" type="button" aria-controls="community-socials" aria-pressed="false" aria-label="Pause floating social icons" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><g class="social-pause"><path d="M7 5v10M13 5v10"/></g><path class="social-play" d="m7 4 9 6-9 6Z"/></svg><span>Pause motion</span></button>
           </div>
         </div>
       </div>
     </section>
   </main>
-  <footer class="footer shell"><a class="brand" href="https://github.com/RL-Align"><img src="/assets/rl-align-logo.png" width="35" height="35" alt=""><span>RL-Align</span></a><p>Open infrastructure for reinforcement learning.</p><div><a href="https://github.com/RL-Align/RL-Kernel/blob/main/LICENSE">Apache 2.0</a><a href="https://github.com/RL-Align">GitHub <svg class="icon small" aria-hidden="true"><use href="#i-external"/></svg></a><a href="mailto:team@rl-align.org">Contact</a></div></footer>
+  <footer class="footer shell">
+    <a class="brand" href="https://github.com/RL-Align"><img src="/assets/rl-align-logo.png" width="35" height="35" alt=""><span>RL-Align</span></a>
+    <p class="footer-copyright">© 2026 RL-Align Team. All rights reserved.</p>
+    <div class="footer-links"><a href="https://github.com/RL-Align/RL-Kernel/blob/main/LICENSE">Apache 2.0</a><a href="https://github.com/RL-Align">GitHub <svg class="icon small" aria-hidden="true"><use href="#i-external"/></svg></a></div>
+  </footer>
 </body>
 </html>

@@ -59,9 +59,20 @@ The prospective September 10 launch banner was removed on September 11. No relea
 
 ## Hosting
 
-The current Site uses the static output declared in `.openai/hosting.json`; source and deployed output are versioned together. The Rust executable runs at build time, not inside the hosted request runtime.
+Production hosting is being migrated to GitHub Pages in `RL-Align/rl-align-website`, with `https://rlalign.ai` as the intended custom domain. The existing documentation site in `RL-Align/RL-Kernel` is independent.
 
-To publish on a GitHub Pages root domain, use the included `.github/workflows/pages.yml` and enable Pages with the GitHub Actions source. The workflow is manual so pushing this project does not unexpectedly publish it. The current asset links are root-relative; a GitHub Pages project subpath requires adapting those links or using a custom domain / organization root repository.
+Enable **Settings → Pages → Source: GitHub Actions**. The included workflow validates both root and project-subpath builds on pull requests, then builds and deploys after changes reach `main`. It can also be run manually. Pages must be enabled in the repository settings before the first deployment.
+
+The workflow reads the base path from the Pages configuration. Before the custom domain is attached it builds for `/rl-align-website`; after the domain is attached it builds for the domain root. To build locally for a project path:
+
+```bash
+BASE_PATH=/rl-align-website cargo run --release --locked --offline -- build
+BASE_PATH=/rl-align-website python3 scripts/check-static.py
+```
+
+For a root-domain build, leave `BASE_PATH` unset. Fonts, images, scripts and styles are served from the same host. The original `.openai/hosting.json` remains solely for the existing Sites preview; it does not control GitHub Pages. Publishing to Sites does not publish to Pages.
+
+Keep the current domain routing in place until the GitHub Pages deployment is verified. Then configure `rlalign.ai` as the Pages custom domain, update DNS, rerun the workflow to use the domain-root paths, and enable HTTPS when GitHub provisions the certificate.
 
 The Partners strip uses the three organizations specified by the user: vime, AMD, and Moore Threads. Official logo sources and the font license are recorded in `CONTENT_SOURCES.md`. No customer counts, testimonials, universal consistency guarantees, or end-to-end speedup extrapolations are inferred from the partner list.
 

@@ -1,35 +1,60 @@
 name: Publish RL-Align website
 
 on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        base_path: ['', '/rl-align-website']
+    env:
+      BASE_PATH: ${{ matrix.base_path }}
     steps:
       - uses: actions/checkout@v4
-      - name: Build with Rust
+      - name: Check configuration and assets
+        run: cargo run --locked --offline -- check
+      - name: Build website
         run: cargo run --release --locked --offline -- build
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
+      - name: Verify deployed resource paths
+        run: python3 scripts/check-static.py
   deploy:
-    needs: build
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: check
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/checkout@v4
+      - name: Read Pages configuration
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Build for the configured domain
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: |
+          cargo run --release --locked --offline -- build
+          python3 scripts/check-static.py
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
       - name: Publish
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@v4
