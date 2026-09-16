@@ -4,7 +4,7 @@
 
 本项目是 RL-Align 官网的独立源码项目。团队源码仓库为 [RL-Align/rl-align-website](https://github.com/RL-Align/rl-align-website)，默认分支为 `main`。官网源码与 [RL-Kernel](https://github.com/RL-Align/RL-Kernel) 项目分别维护。
 
-当前 Site 的开发目录为 `/workspace/sites/rl-align`，线上发布版本仍由该 Site 对应的 Git 仓库和发布流程记录。社区 GitHub 仓库用于团队协作与源码迭代。
+官网正式发布目标为社区 GitHub 仓库的 Pages。原 Site 的开发目录为 `/workspace/sites/rl-align`，保留作预览；正式切换状态以 GitHub Pages 部署结果与域名解析为准。
 
 当前线上地址：https://rlalign.ai
 
@@ -67,30 +67,31 @@ py -3 -m http.server 8080 --directory dist
 
 ## 如何把修改发布上线
 
-### 继续使用当前 Site
+### 2026-09-16 迁移到 GitHub Pages
 
-可以继续在本项目对应的对话中提出具体修改。更新过程是修改源码、构建、保存版本、发布到当前网址。`.openai/hosting.json` 绑定当前 Site；继续维护这个网站时应保留该绑定。
+用户明确要求将当前官网从 Sites 迁移至 `RL-Align/rl-align-website` 的 GitHub Pages。本次迁移提前汇总此前 3/5 批次的全部源码改动，避免发布旧版官网。迁移代码已准备；实际启用 Pages、首次部署成功和 DNS 切换必须分别验证，不能仅凭代码上传判断上线完成。
 
-自己在电脑上修改文件或推送到 GitHub，不会自动更新当前官网 `https://rlalign.ai`。仍需把确定的源码版本交回当前 Site 的发布流程。
+目标正式域名为 `https://rlalign.ai`。现有文档站 `https://rl-align.github.io/RL-Kernel/` 属于独立仓库，本次不修改。
 
-### 使用社区自己的 GitHub 仓库
+1. 在官网仓库 **Settings → Pages → Source** 选择 **GitHub Actions**。
+2. 将迁移改动审核合并到 `main`。工作流先验证根目录与项目子路径两种构建，再发布；也支持手动运行。
+3. 先验证 GitHub Pages 项目地址上的页面、字体、图片、导航和邮箱交互。
+4. 在 Pages 中设置自定义域名 `rlalign.ai`，再将该域名的 DNS 切换至 GitHub Pages。不要更改邮箱相关 MX/TXT 记录。
+5. 域名设置后重新运行工作流，让构建读取新的根路径；待证书签发后启用 HTTPS，再用大陆、香港和海外网络实测。
 
-官网源码已上传至 `RL-Align/rl-align-website`。后续在本项目对话中提出网站修改时，同步使用这个仓库记录改动，无需每次重新下载压缩包再上传。
+构建器通过 `BASE_PATH` 环境变量支持根域名和项目子路径。Pages 工作流自动从 `actions/configure-pages` 读取该值。字体路径相对于 CSS 文件解析；404 页面回首页链接也包含正确前缀。`scripts/check-static.py` 检查实际输出中的本地资源是否存在且前缀正确。
 
-每次同步的流程：
+### 后续协作
 
-1. 读取 GitHub 最新 `main` 和相关工作分支，对照当前 Site 源码，先保留并整合团队已有修改。
-2. 完成网站修改和必要的构建检查，将对应的源码及构建输出提交到工作分支，创建或更新 PR，提供可审核的差异。
-3. 由维护者审核并合并到 `main`。用户明确要求直接提交且仓库规则允许时，可以直接提交；同步过程不强推或覆盖团队历史。
-4. 如本次任务包含官网更新，继续通过现有 Site 发布流程发布对应版本，并分别报告 GitHub 提交或 PR 链接以及官网发布结果。
+仍按五次需求一批：先修改、构建并提供预览，同一需求的反馈修正不重复计数；累计五次后汇总一个社区 PR，团队审核合并。Pages 正式站在 PR 合并到 `main` 后自动更新。独立预览和正式站分别发布，不自动合并 PR，不强推。
 
-代码同步在处理网站修改的对话中执行。目前没有配置后台自动同步或 GitHub 推送触发当前 Site 发布；GitHub PR 合并与官网上线分别记录。
+原 `.openai/hosting.json` 仅保留原 Site 预览绑定。它不会控制 Pages，也不会把社区提交自动回写 Sites。
 
-源码中已有 `.github/workflows/pages.yml`，用于手动构建并发布到 GitHub Pages。使用前需要在目标仓库启用 Pages，并选择 GitHub Actions 作为构建来源。该工作流通过 `workflow_dispatch` 手动触发，没有配置推送即发布。
+### 本次迁移包含的待汇总改动
 
-当前页面资源使用 `/assets/...` 根路径。适用于独立域名、组织根站点或当前 Site。若使用 `rl-align.github.io/rl-align-website/` 这类项目子路径，需要先增加路径前缀支持，不能直接按现有配置发布。
-
-换托管平台时，构建后的 `dist/` 可交给静态网站托管服务。域名注册、DNS 绑定和网站源码维护是分别处理的事项。
+- 第 1 次需求（2026-09-12）：页脚增加 `© 2026 RL-Align Team. All rights reserved.`；按反馈将页脚收为单条横栏，保留 Logo、版权和 Apache 2.0 / GitHub 链接，移除第二层分隔线、标语和 Partnerships 邮箱块。合作邮箱入口移至首页按钮下方 Apache 2.0 后，以橙色带下划线的 `contact us` 链接打开 `mailto:team@rl-align.org`；手机上自适应排版。同项需求的样式修正，仍计 1/5。
+- 第 2 次需求（2026-09-12）：四处区块标签改为自然大小写、正常字距与 Hanken Grotesk 常规字重；社区邮箱文字改为第六个浮动信封气泡，点击展开 `team@rl-align.org`，地址可点击写信，支持再次点击、外部点击与 Escape 收起，沿用暂停动画与减少动态效果设置。
+- 第 3 次需求（2026-09-12）：首页 3D 图注的 `RL-KERNEL` 改为 `RL-Kernel`，参照首页说明使用 Hanken Grotesk 300 字重、17px 字号、正常字距及相同文字颜色。
 
 ## 当前已确认的设计约定
 
@@ -105,7 +106,7 @@ py -3 -m http.server 8080 --directory dist
 
 ## 社区社交气泡
 
-社区区域的五个链接统一放在 `site.conf`：`WECHAT_URL`、`X_URL`、`LINKEDIN_URL`、`WHATSAPP_URL`、`SLACK_URL`。修改后重新构建并发布。所有气泡在新标签打开链接，并带有平台名称和键盘焦点提示。
+社区区域的五个社交链接统一放在 `site.conf`：`WECHAT_URL`、`X_URL`、`LINKEDIN_URL`、`WHATSAPP_URL`、`SLACK_URL`。修改后重新构建并发布。社交链接气泡在新标签打开，并带有平台名称和键盘焦点提示。第六个邮箱气泡使用 `CONTACT_EMAIL`，通过原生 details/summary 展开地址，地址的 mailto 链接用于写信；不依赖 JavaScript 也可展开，JavaScript 补充外部点击与 Escape 收起。
 
 气泡位置与浮动速度位于 `assets/site.css` 的 `.social-position`、各平台类和 `social-float` 动画中。`assets/site.js` 控制暂停、继续、减少动态效果偏好以及离开视野或切换标签页后的自动暂停。关闭 JavaScript 时保留静态可点击图标。
 

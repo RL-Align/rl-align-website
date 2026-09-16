@@ -10,11 +10,11 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{TITLE}}">
   <meta property="og:description" content="{{DESCRIPTION}}">
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="/assets/fonts/hanken-grotesk-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/site.css">
-  <script defer src="/assets/site.js"></script>
-  <script defer src="/assets/infinity.js"></script>
+  <link rel="icon" href="{{BASE_PATH}}/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="{{BASE_PATH}}/assets/fonts/hanken-grotesk-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{BASE_PATH}}/assets/site.css">
+  <script defer src="{{BASE_PATH}}/assets/site.js"></script>
+  <script defer src="{{BASE_PATH}}/assets/infinity.js"></script>
 </head>
 <body>
   <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
@@ -29,14 +29,14 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="header">
     <div class="shell header-inner">
-      <a class="brand" href="/" aria-label="RL-Align home"><img src="/assets/rl-align-logo.png" width="44" height="44" alt=""><span>RL-Align</span></a>
+      <a class="brand" href="{{BASE_PATH}}/" aria-label="RL-Align home"><img src="{{BASE_PATH}}/assets/rl-align-logo.png" width="44" height="44" alt=""><span>RL-Align</span></a>
       <button class="menu-button" aria-expanded="false" aria-controls="navigation" aria-label="Open navigation"><span></span><span></span></button>
       <nav class="navigation" id="navigation" aria-label="Main navigation">
         <div class="nav-links"><a href="{{DOCS_URL}}">Docs</a><a href="{{BLOG_URL}}">Blog</a><a href="#community">Community</a></div>
         <div class="nav-socials" role="group" aria-label="Social links">
-          <a class="nav-icon" href="{{X_URL}}" target="_blank" rel="noopener noreferrer" aria-label="RL-Align on X (opens in a new tab)" title="X"><img src="/assets/social/x-twitter.svg" width="24" height="24" alt=""></a>
-          <a class="nav-icon" href="{{SLACK_URL}}" target="_blank" rel="noopener noreferrer" aria-label="Join RL-Align on Slack (opens in a new tab)" title="Slack"><img src="/assets/social/slack.svg" width="24" height="24" alt=""></a>
-          <a class="nav-icon" href="{{LINKEDIN_URL}}" target="_blank" rel="noopener noreferrer" aria-label="RL-Align on LinkedIn (opens in a new tab)" title="LinkedIn"><img src="/assets/social/linkedin-in.svg" width="23" height="23" alt=""></a>
+          <a class="nav-icon" href="{{X_URL}}" target="_blank" rel="noopener noreferrer" aria-label="RL-Align on X (opens in a new tab)" title="X"><img src="{{BASE_PATH}}/assets/social/x-twitter.svg" width="24" height="24" alt=""></a>
+          <a class="nav-icon" href="{{SLACK_URL}}" target="_blank" rel="noopener noreferrer" aria-label="Join RL-Align on Slack (opens in a new tab)" title="Slack"><img src="{{BASE_PATH}}/assets/social/slack.svg" width="24" height="24" alt=""></a>
+          <a class="nav-icon" href="{{LINKEDIN_URL}}" target="_blank" rel="noopener noreferrer" aria-label="RL-Align on LinkedIn (opens in a new tab)" title="LinkedIn"><img src="{{BASE_PATH}}/assets/social/linkedin-in.svg" width="23" height="23" alt=""></a>
           <a class="nav-icon" href="{{REPO_URL}}" target="_blank" rel="noopener noreferrer" aria-label="RL-Kernel on GitHub (opens in a new tab)" title="GitHub"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg></a>
         </div>
       </nav>
@@ -49,26 +49,26 @@
         <h1 id="hero-title">Train. Infer.<br><span>Stay aligned.</span></h1>
         <p class="hero-description">Building cross-hardware and multi-model RL post-training infrastructure for kernel-level train–inference consistency.</p>
         <div class="hero-actions"><a class="button primary" href="#get-started">Get started <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="button secondary" href="{{REPO_URL}}"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg> Explore RL-Kernel</a></div>
-        <div class="hero-meta"><span>Open source</span><span>Apache 2.0</span></div>
+        <div class="hero-meta"><span>Open source</span><span>Apache 2.0</span><a class="hero-contact" href="mailto:{{CONTACT_EMAIL}}" title="{{CONTACT_EMAIL}}">contact us</a></div>
       </div>
       <figure class="hero-art" aria-label="A silver three-dimensional infinity loop with blue and violet reflections">
         <div class="infinity-stage">
-          <img class="infinity-fallback" src="/assets/alignment-chrome.webp" alt="" width="1536" height="1024" fetchpriority="high">
+          <img class="infinity-fallback" src="{{BASE_PATH}}/assets/alignment-chrome.webp" alt="" width="1536" height="1024" fetchpriority="high">
           <canvas id="infinity-canvas" aria-hidden="true"></canvas>
         </div>
-        <figcaption><span>RL-KERNEL</span><span class="hero-art-caption">Precision in every connection.<button class="rotation-toggle" type="button" aria-label="Pause rotation" title="Pause rotation" aria-controls="infinity-canvas" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><g class="rotation-pause"><path d="M7 5v10M13 5v10"/></g><path class="rotation-play" d="m7 4 9 6-9 6Z"/></svg></button></span></figcaption>
+        <figcaption><span>RL-Kernel</span><span class="hero-art-caption">Precision in every connection.<button class="rotation-toggle" type="button" aria-label="Pause rotation" title="Pause rotation" aria-controls="infinity-canvas" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><g class="rotation-pause"><path d="M7 5v10M13 5v10"/></g><path class="rotation-play" d="m7 4 9 6-9 6Z"/></svg></button></span></figcaption>
       </figure>
     </section>
     <section class="partners shell" aria-labelledby="partners-title">
-      <p id="partners-title">OUR PARTNERS</p>
+      <p id="partners-title">Our partners</p>
       <div class="partner-logos">
-        <a class="partner partner-vime" href="https://github.com/vllm-project/vime" aria-label="vime reinforcement learning framework"><span class="partner-logo-vime"><img src="/assets/partners/vime.jpg" alt="vime" width="1706" height="922" loading="lazy"></span></a>
-        <a class="partner partner-amd" href="https://www.amd.com/" aria-label="AMD"><img src="/assets/partners/amd.svg" alt="AMD" width="140" height="33" loading="lazy"></a>
-        <a class="partner partner-moore" href="https://www.mthreads.com/" aria-label="Moore Threads · 摩尔线程"><img src="/assets/partners/moore-threads.png" alt="摩尔线程 Moore Threads" width="520" height="148" loading="lazy"></a>
+        <a class="partner partner-vime" href="https://github.com/vllm-project/vime" aria-label="vime reinforcement learning framework"><span class="partner-logo-vime"><img src="{{BASE_PATH}}/assets/partners/vime.jpg" alt="vime" width="1706" height="922" loading="lazy"></span></a>
+        <a class="partner partner-amd" href="https://www.amd.com/" aria-label="AMD"><img src="{{BASE_PATH}}/assets/partners/amd.svg" alt="AMD" width="140" height="33" loading="lazy"></a>
+        <a class="partner partner-moore" href="https://www.mthreads.com/" aria-label="Moore Threads · 摩尔线程"><img src="{{BASE_PATH}}/assets/partners/moore-threads.png" alt="摩尔线程 Moore Threads" width="520" height="148" loading="lazy"></a>
       </div>
     </section>
     <section class="principles section shell" aria-labelledby="principles-title">
-      <div class="principles-intro"><p class="eyebrow">01 / OUR FOUNDATION</p><h2 id="principles-title">Every rollout explores<br>the unknown.<br><span>Build on certainty.</span></h2><p>We work to eliminate numerical mismatch between training and inference, with bitwise alignment as the goal and explicit operator contracts as the foundation.</p></div>
+      <div class="principles-intro"><p class="eyebrow">01 / Our foundation</p><h2 id="principles-title">Every rollout explores<br>the unknown.<br><span>Build on certainty.</span></h2><p>We work to eliminate numerical mismatch between training and inference, with bitwise alignment as the goal and explicit operator contracts as the foundation.</p></div>
       <div class="features" aria-label="RL-Kernel capabilities">
       <article><span class="feature-number">01</span><h3>Consistency at the core.</h3><p>Deterministic reduction paths and explicit operator contracts help control numerical divergence between training and rollout.</p><a class="text-link" href="{{REPO_URL}}#our-core-philosophy">Explore the approach <svg class="icon small" aria-hidden="true"><use href="#i-arrow"/></svg></a></article>
       <article><span class="feature-number">02</span><h3>More room to scale.</h3><p>Fused logprob computation, chunking, and shared-prefix attention target the memory bottlenecks in large RL workloads.</p><a class="text-link" href="{{DOCS_URL}}">Explore the operators <svg class="icon small" aria-hidden="true"><use href="#i-arrow"/></svg></a></article>
@@ -76,40 +76,52 @@
       </div>
     </section>
     <section class="getting-started section" id="get-started" aria-labelledby="getting-started-title">
-      <div class="shell start-grid"><div><p class="eyebrow">02 / START BUILDING</p><h2 id="getting-started-title">Build your<br>next breakthrough.</h2><p>Build from source and choose the operator path that fits your workload. Start with the installation guide for hardware prerequisites.</p><a class="button secondary" href="{{DOCS_URL}}">Read the documentation <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="installation-note">Native GPU kernels require Python 3.10+, a matching PyTorch build, and a CUDA or ROCm toolchain. Install backend dependencies first.</p></div>
+      <div class="shell start-grid"><div><p class="eyebrow">02 / Start building</p><h2 id="getting-started-title">Build your<br>next breakthrough.</h2><p>Build from source and choose the operator path that fits your workload. Start with the installation guide for hardware prerequisites.</p><a class="button secondary" href="{{DOCS_URL}}">Read the documentation <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="installation-note">Native GPU kernels require Python 3.10+, a matching PyTorch build, and a CUDA or ROCm toolchain. Install backend dependencies first.</p></div>
         <div class="code-panel"><div class="code-header"><div class="code-tabs" role="tablist" aria-label="Installation mode"><button id="tab-cuda" role="tab" aria-selected="true" aria-controls="panel-cuda" tabindex="0">NVIDIA CUDA</button><button id="tab-rocm" role="tab" aria-selected="false" aria-controls="panel-rocm" tabindex="-1">AMD ROCm</button><button id="tab-python" role="tab" aria-selected="false" aria-controls="panel-python" tabindex="-1">Python fallback</button></div><button class="copy-button" aria-label="Copy installation commands"><svg class="icon small" aria-hidden="true"><use href="#i-copy"/></svg><span>Copy</span></button></div><div id="panel-cuda" role="tabpanel" aria-labelledby="tab-cuda" tabindex="0"><pre><code>{{INSTALL_CUDA}}</code></pre></div><div id="panel-rocm" role="tabpanel" aria-labelledby="tab-rocm" tabindex="0" hidden><pre><code>{{INSTALL_ROCM}}</code></pre></div><div id="panel-python" role="tabpanel" aria-labelledby="tab-python" tabindex="0" hidden><pre><code>{{INSTALL_PYTHON}}</code></pre></div><div class="code-footer"><span>BASH</span><a href="{{REPO_URL}}/blob/main/docs/getting_started/installation.md">Installation guide <svg class="icon small" aria-hidden="true"><use href="#i-external"/></svg></a></div><span class="sr-only" id="copy-status" role="status" aria-live="polite"></span></div>
       </div>
     </section>
     <section class="community section shell" id="community" aria-labelledby="community-title">
       <div class="community-card">
         <div>
-          <p class="eyebrow">03 / THE COMMUNITY</p>
+          <p class="eyebrow">03 / The community</p>
           <h2 id="community-title">The next frontier.<br><span>Built together.</span></h2>
           <p>We’re a community of kernel developers, infrastructure engineers, and researchers. Bring a benchmark, a question, or your next pull request.</p>
           <div class="community-actions"><a class="button primary" href="{{SLACK_URL}}">Join the community <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="text-link" href="{{REPO_URL}}/issues">Contribute on GitHub <svg class="icon small" aria-hidden="true"><use href="#i-external"/></svg></a></div>
         </div>
         <div class="community-aside">
           <div class="social-orbit" id="community-socials" data-motion="paused">
-            <div class="community-logo"><img src="/assets/rl-align-logo.png" width="110" height="110" alt="RL-Align flame and circuit logo" loading="lazy"></div>
+            <div class="community-logo"><img src="{{BASE_PATH}}/assets/rl-align-logo.png" width="110" height="110" alt="RL-Align flame and circuit logo" loading="lazy"></div>
             <nav aria-label="RL-Align social channels">
               <ul class="social-bubbles">
-                <li class="social-position social-wechat"><a class="social-bubble" href="{{WECHAT_URL}}" target="_blank" rel="noopener noreferrer" aria-label="WeChat community (opens in a new tab)"><img class="social-icon" src="/assets/social/weixin.svg" width="30" height="30" alt="" loading="lazy"><span class="bubble-label" aria-hidden="true">WeChat</span></a></li>
-                <li class="social-position social-x"><a class="social-bubble" href="{{X_URL}}" target="_blank" rel="noopener noreferrer" aria-label="RL-Align on X (opens in a new tab)"><img class="social-icon" src="/assets/social/x-twitter.svg" width="26" height="26" alt="" loading="lazy"><span class="bubble-label" aria-hidden="true">X</span></a></li>
-                <li class="social-position social-linkedin"><a class="social-bubble" href="{{LINKEDIN_URL}}" target="_blank" rel="noopener noreferrer" aria-label="RL-Align on LinkedIn (opens in a new tab)"><img class="social-icon" src="/assets/social/linkedin-in.svg" width="26" height="26" alt="" loading="lazy"><span class="bubble-label" aria-hidden="true">LinkedIn</span></a></li>
-                <li class="social-position social-whatsapp"><a class="social-bubble" href="{{WHATSAPP_URL}}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp community QR code (opens in a new tab)"><img class="social-icon" src="/assets/social/whatsapp.svg" width="30" height="30" alt="" loading="lazy"><span class="bubble-label" aria-hidden="true">WhatsApp</span></a></li>
-                <li class="social-position social-slack"><a class="social-bubble" href="{{SLACK_URL}}" target="_blank" rel="noopener noreferrer" aria-label="Join RL-Align on Slack (opens in a new tab)"><img class="social-icon" src="/assets/social/slack.svg" width="28" height="28" alt="" loading="lazy"><span class="bubble-label" aria-hidden="true">Slack</span></a></li>
+                <li class="social-position social-wechat"><a class="social-bubble" href="{{WECHAT_URL}}" target="_blank" rel="noopener noreferrer" aria-label="WeChat community (opens in a new tab)"><img class="social-icon" src="{{BASE_PATH}}/assets/social/weixin.svg" width="30" height="30" alt="" loading="lazy"><span class="bubble-label" aria-hidden="true">WeChat</span></a></li>
+                <li class="social-position social-x"><a class="social-bubble" href="{{X_URL}}" target="_blank" rel="noopener noreferrer" aria-label="RL-Align on X (opens in a new tab)"><img class="social-icon" src="{{BASE_PATH}}/assets/social/x-twitter.svg" width="26" height="26" alt="" loading="lazy"><span class="bubble-label" aria-hidden="true">X</span></a></li>
+                <li class="social-position social-linkedin"><a class="social-bubble" href="{{LINKEDIN_URL}}" target="_blank" rel="noopener noreferrer" aria-label="RL-Align on LinkedIn (opens in a new tab)"><img class="social-icon" src="{{BASE_PATH}}/assets/social/linkedin-in.svg" width="26" height="26" alt="" loading="lazy"><span class="bubble-label" aria-hidden="true">LinkedIn</span></a></li>
+                <li class="social-position social-whatsapp"><a class="social-bubble" href="{{WHATSAPP_URL}}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp community QR code (opens in a new tab)"><img class="social-icon" src="{{BASE_PATH}}/assets/social/whatsapp.svg" width="30" height="30" alt="" loading="lazy"><span class="bubble-label" aria-hidden="true">WhatsApp</span></a></li>
+                <li class="social-position social-slack"><a class="social-bubble" href="{{SLACK_URL}}" target="_blank" rel="noopener noreferrer" aria-label="Join RL-Align on Slack (opens in a new tab)"><img class="social-icon" src="{{BASE_PATH}}/assets/social/slack.svg" width="28" height="28" alt="" loading="lazy"><span class="bubble-label" aria-hidden="true">Slack</span></a></li>
+                <li class="social-position social-email">
+                  <details class="email-disclosure">
+                    <summary class="social-bubble" aria-label="Email contact">
+                      <svg class="social-icon email-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                      <span class="bubble-label" aria-hidden="true">Email</span>
+                    </summary>
+                    <div class="email-card"><a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a></div>
+                  </details>
+                </li>
               </ul>
             </nav>
           </div>
           <p>The new future<br>of reinforcement learning.</p>
           <div class="community-contact">
-            <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>
             <button class="social-motion-toggle" type="button" aria-controls="community-socials" aria-pressed="false" aria-label="Pause floating social icons" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><g class="social-pause"><path d="M7 5v10M13 5v10"/></g><path class="social-play" d="m7 4 9 6-9 6Z"/></svg><span>Pause motion</span></button>
           </div>
         </div>
       </div>
     </section>
   </main>
-  <footer class="footer shell"><a class="brand" href="{{ORG_URL}}"><img src="/assets/rl-align-logo.png" width="35" height="35" alt=""><span>RL-Align</span></a><p>Open infrastructure for reinforcement learning.</p><div><a href="{{REPO_URL}}/blob/main/LICENSE">Apache 2.0</a><a href="{{ORG_URL}}">GitHub <svg class="icon small" aria-hidden="true"><use href="#i-external"/></svg></a><a href="mailto:{{CONTACT_EMAIL}}">Contact</a></div></footer>
+  <footer class="footer shell">
+    <a class="brand" href="{{ORG_URL}}"><img src="{{BASE_PATH}}/assets/rl-align-logo.png" width="35" height="35" alt=""><span>RL-Align</span></a>
+    <p class="footer-copyright">© 2026 RL-Align Team. All rights reserved.</p>
+    <div class="footer-links"><a href="{{REPO_URL}}/blob/main/LICENSE">Apache 2.0</a><a href="{{ORG_URL}}">GitHub <svg class="icon small" aria-hidden="true"><use href="#i-external"/></svg></a></div>
+  </footer>
 </body>
 </html>

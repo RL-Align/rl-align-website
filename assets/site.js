@@ -48,6 +48,21 @@ document.addEventListener('click', event => {
   updateMotion();
 })();
 
+// The native disclosure also works without JavaScript.
+const emailDisclosure = document.querySelector('.email-disclosure');
+if (emailDisclosure) {
+  document.addEventListener('click', event => {
+    if (emailDisclosure.open && !emailDisclosure.contains(event.target)) emailDisclosure.open = false;
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && emailDisclosure.open) {
+      const restoreFocus = emailDisclosure.contains(document.activeElement);
+      emailDisclosure.open = false;
+      if (restoreFocus) emailDisclosure.querySelector('summary').focus();
+    }
+  });
+}
+
 const tabs = [...document.querySelectorAll('.code-tabs [role="tab"]')];
 const copyButton = document.querySelector('.copy-button');
 const copyStatus = document.querySelector('#copy-status');
