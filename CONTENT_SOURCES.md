@@ -97,3 +97,7 @@ The user requested removal of the entire Performance / With the evidence section
 - linkedin-in.svg: https://github.com/FortAwesome/Font-Awesome/blob/7.x/svgs/brands/linkedin-in.svg (blob 7b706c06da3f963a0a8f4e0a998df15b6b4bc03d).
 - whatsapp.svg: https://github.com/FortAwesome/Font-Awesome/blob/7.x/svgs/brands/whatsapp.svg (blob f74f960397a16bdee0eb45947bb0efd3bc206693).
 - slack.svg: https://github.com/FortAwesome/Font-Awesome/blob/7.x/svgs/brands/slack.svg (blob 546b270c316d3d898a0361553b6c335bb50f4bbe).
+
+## Ascend partner logo, 2026-11-07
+
+- Ascend (昇腾) links to https://www.hiascend.com/. Its header SVG is stored unchanged from the [vendor logo mirror](https://github.com/flitai-io/gpuworks/blob/9ca8dec0cc39ffcecea00cdd0243b1ce6baf7cc9/ui/public/vendor-logos/ascend.svg). The partner strip uses the reversed white treatment for its dark background.

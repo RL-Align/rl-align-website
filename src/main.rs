@@ -70,7 +70,7 @@ fn build(root: &Path, check_only: bool) -> Result<()> {
     }
     let index = render(&fs::read_to_string(root.join("templates/index.html"))?, &values)?;
     let not_found = render(&fs::read_to_string(root.join("templates/404.html"))?, &values)?;
-    for asset in ["site.css", "site.js", "infinity.js", "rl-align-logo.png", "alignment-chrome.webp", "favicon.svg", "architecture.png", "architecture-overview.svg", "architecture-overview-mobile.svg", "fonts/hanken-grotesk-latin-variable.woff2", "fonts/OFL-Hanken-Grotesk.txt", "partners/vime.jpg", "partners/amd.svg", "partners/moore-threads.png"] {
+    for asset in ["site.css", "site.js", "infinity.js", "rl-align-logo.png", "alignment-chrome.webp", "favicon.svg", "architecture.png", "architecture-overview.svg", "architecture-overview-mobile.svg", "fonts/hanken-grotesk-latin-variable.woff2", "fonts/OFL-Hanken-Grotesk.txt", "partners/vime.jpg", "partners/amd.svg", "partners/moore-threads.png", "partners/ascend.svg"] {
         if !root.join("assets").join(asset).is_file() { return Err(format!("Missing asset: {}", asset).into()); }
     }
     if !check_only {
