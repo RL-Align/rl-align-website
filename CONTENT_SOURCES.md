@@ -101,3 +101,7 @@ The user requested removal of the entire Performance / With the evidence section
 ## Ascend partner logo, 2026-11-07
 
 - Ascend (昇腾) links to https://www.hiascend.com/. Its header SVG is stored unchanged from the [vendor logo mirror](https://github.com/flitai-io/gpuworks/blob/9ca8dec0cc39ffcecea00cdd0243b1ce6baf7cc9/ui/public/vendor-logos/ascend.svg). The partner strip uses the reversed white treatment for its dark background.
+
+## AReaL partner logo, 2026-11-25
+
+- AReaL links to https://areal-ai.io/. The official navbar icon is vendored unchanged from [the AReaL website](https://github.com/areal-project/areal-project.github.io/blob/81680125ee1c86ca32389469e34adfff9536f3cb/static/img/areal/areal-logo.png), with the AReaL name alongside it, matching the official navbar treatment. It is served locally with the rest of the site assets.
