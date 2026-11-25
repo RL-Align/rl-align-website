@@ -95,7 +95,8 @@ button:focus-visible, a:focus-visible, summary:focus-visible, [tabindex]:focus-v
 .rotation-play, .rotation-toggle.is-paused .rotation-pause { display: none; }
 .rotation-toggle.is-paused .rotation-play { display: block; }
 .partners { border-block: 1px solid var(--line); padding-block: 32px; display: grid; grid-template-columns: 180px minmax(0,1fr); align-items: center; column-gap: 60px; }
-.partners > p { color: var(--dim); font: 400 .9375rem/1.5 var(--font); letter-spacing: normal; }
+.partners > p { align-self: start; min-height: 64px; display: flex; align-items: center; color: var(--dim); font: 400 .9375rem/1.5 var(--font); letter-spacing: normal; }
+/* Grid auto-placement keeps four partners per desktop row and grows as links are added. */
 .partner-logos { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); align-items: center; gap: 30px; }
 .partner { min-width: 0; min-height: 64px; display: flex; align-items: center; justify-content: center; opacity: .88; transition: opacity .2s; }
 .partner:hover, .partner:focus-visible { opacity: 1; }
@@ -105,6 +106,8 @@ button:focus-visible, a:focus-visible, summary:focus-visible, [tabindex]:focus-v
 .partner-amd img { width: 144px; }
 .partner-moore img { width: 194px; }
 .partner-ascend img { width: 150px; filter: brightness(0) invert(1); }
+.partner-areal { gap: 10px; white-space: nowrap; font: 500 1.875rem/1 var(--font); letter-spacing: -.03em; }
+.partner-areal img { width: 44px; flex: none; }
 .section { padding-block: 112px; }
 .principles-intro { display: grid; grid-template-columns: 1fr 1fr; align-items: end; column-gap: 90px; }
 .principles-intro .eyebrow { grid-column: 1/-1; margin-bottom: 28px; }
@@ -222,7 +225,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible, [tabindex]:focus-v
   .hero-actions { gap: 10px; }
   .hero-actions .button { padding: 12px 16px; }
   .partners { grid-template-columns: 1fr; gap: 20px; }
-  .partners > p { text-align: center; }
+  .partners > p { min-height: auto; justify-content: center; text-align: center; }
   .start-grid { grid-template-columns: 1fr; gap: 35px; }
   .start-grid > div > p:not(.eyebrow) { max-width: 580px; }
   .code-panel pre { min-height: 0; }
@@ -254,6 +257,8 @@ button:focus-visible, a:focus-visible, summary:focus-visible, [tabindex]:focus-v
   .partner-logo-vime { width: min(108px,100%); }
   .partner-amd img { width: 116px; }
   .partner-moore img { width: 165px; }
+  .partner-areal { gap: 8px; font-size: 1.5rem; }
+  .partner-areal img { width: 36px; }
   .section { padding-block: 70px; }
   .principles-intro, .section-heading { grid-template-columns: 1fr; gap: 23px; }
   .principles-intro .eyebrow { margin: 0; }

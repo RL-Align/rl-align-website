@@ -59,6 +59,8 @@ py -3 -m http.server 8080 --directory dist
 
 在 `templates/index.html` 中增加对应区块，在 `assets/site.css` 中补充样式，图片放入 `assets/`。如果增加导航入口，需要确保 `href="#区块ID"` 对应页面中真实存在的 `id`。
 
+合作伙伴列表在 `templates/index.html` 的 `.partner-logos` 中维护。追加一个 `.partner` 链接即可按顺序自动换行：桌面每行四个，窄屏每行两个，不需要设置行数、修改其他区块或增加 JavaScript。Logo 放在 `assets/partners/`，在 `src/main.rs` 的必需资源列表登记，并在 `CONTENT_SOURCES.md` 记录来源；需要单独控制尺寸时，仅增加对应伙伴的样式。
+
 ### 新增独立 Blog 或文档页面
 
 当前构建器只输出首页和 404 页面。新增独立页面时，需要同时添加 HTML 模板、在 `src/main.rs` 中注册渲染和输出路径，并连接导航或文章列表。只在 `templates/` 中增加一个文件，不会自动生成新页面。
